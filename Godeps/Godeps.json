@@ -47,19 +47,6 @@
 			"ImportPath": "github.com/astaxie/beego/utils",
 			"Comment": "v1.10.1-84-g7a50ea7",
 			"Rev": "7a50ea7e36fa05e209cc3394265501333bf797d7"
-		},
-		{
-			"ImportPath": "golang.org/x/crypto/acme",
-			"Rev": "3d3f9f413869b949e48070b5bc593aa22cc2b8f2"
-		},
-		{
-			"ImportPath": "golang.org/x/crypto/acme/autocert",
-			"Rev": "3d3f9f413869b949e48070b5bc593aa22cc2b8f2"
-		},
-		{
-			"ImportPath": "gopkg.in/yaml.v2",
-			"Comment": "v2.2.1",
-			"Rev": "5420a8b6744d3b0345ab293f6fcba19c978f1183"
 		}
 	]
 }
