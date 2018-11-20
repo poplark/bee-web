@@ -1,19 +1,20 @@
-FROM library/golang
+FROM centos
 
-# Godep for vendoring
-RUN go get github.com/tools/godep
+MAINTAINER poplark
 
-# Recompile the standard library without CGO
-RUN CGO_ENABLED=0 go install -a std
-
-ENV APP_DIR $GOPATH/src/bee-web
+# -------- 镜像操作指令 --------
+ENV APP_DIR /app/bee-web
 RUN mkdir -p $APP_DIR
 
-# Set the entrypoint
-ENTRYPOINT (cd $APP_DIR && ./bee-web)
+# RUN go build 相关命令
+
 ADD . $APP_DIR
 
-# Compile the binary and statically link
-RUN cd $APP_DIR && CGO_ENABLED=0 godep go build -ldflags '-d -w -s'
+EXPOSE 3001
 
-EXPOSE 8080
+# -------- 容器启动时执行指令 --------
+WORKDIR $APP_DIR
+# Set the entrypoint
+ENTRYPOINT ./bee-web
+# #CMD ["bee-web"] 有 entrypoint，不需要这个，否则重复了
+
